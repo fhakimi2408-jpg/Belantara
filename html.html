@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Special Surprise 😏</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ff758c, #ff7eb3);
+            font-family: Arial, sans-serif;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-size: 55px;
+            margin-top: 120px;
+            color: white;
+            display: none;
+            animation: pop 0.8s ease forwards;
+        }
+
+        p {
+            font-size: 28px;
+            color: white;
+            display: none;
+        }
+
+        button {
+            padding: 15px 35px;
+            font-size: 22px;
+            border: none;
+            border-radius: 12px;
+            background-color: white;
+            color: #ff4e50;
+            cursor: pointer;
+            margin-top: 220px;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: #ff4e50;
+            color: white;
+        }
+
+        @keyframes pop {
+            0% {transform: scale(0);}
+            100% {transform: scale(1);}
+        }
+
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            animation: fall 3s linear infinite;
+        }
+
+        @keyframes fall {
+            0% {transform: translateY(-100vh);}
+            100% {transform: translateY(100vh);}
+        }
+    </style>
+</head>
+<body>
+
+<button onclick="surprise()">Click If You're Brave 😏</button>
+
+<h1 id="msg">ALYA BUSUKKKK 😂😂</h1>
+<p id="wish">Just kiddinggg 😆 HAPPY BIRTHDAYYY 🎉🎂</p>
+
+<script>
+    function surprise() {
+        document.querySelector("button").style.display = "none";
+        document.getElementById("msg").style.display = "block";
+        document.getElementById("wish").style.display = "block";
+
+        for (let i = 0; i < 120; i++) {
+            let confetti = document.createElement("div");
+            confetti.classList.add("confetti");
+            confetti.style.left = Math.random() * 100 + "vw";
+            confetti.style.backgroundColor =
+                "hsl(" + Math.random() * 360 + ", 100%, 50%)";
+            confetti.style.animationDuration =
+                (Math.random() * 3 + 2) + "s";
+            document.body.appendChild(confetti);
+        }
+    }
+</script>
+
+</body>
+</html>
